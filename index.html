@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Factorial Calculator</title>
+</head>
+<body>
+  <h1>Factorial Calculator</h1>
+  <script>
+    function isNumber(value) {
+      return !isNaN(parseFloat(value)) && isFinite(value);
+    }
+
+    function calculateFactorial() {
+      let number;
+      do {
+        const userInput = prompt("Ingrese un número para calcular el factorial:");
+        if (isNumber(userInput)) {
+          number = parseFloat(userInput);
+        } else {
+          alert("Entrada no válida. Por favor, ingrese un número válido.");
+        }
+      } while (isNaN(number));
+
+      let factorial = 1;
+      for (let i = 1; i <= number; i++) {
+        factorial *= i;
+      }
+
+      const resultElement = document.createElement('p');
+      resultElement.textContent = `El factorial de ${number} es ${factorial}.`;
+      document.body.appendChild(resultElement);
+    }
+
+    calculateFactorial();
+  </script>
+</body>
+</html>
